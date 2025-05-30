@@ -7,6 +7,53 @@
   --foreground: #171717;
 }
 
+@layer utilities {
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+}
+
+
+.swiper-custom-pagination-core .swiper-pagination-bullet {
+  background-color: #D4AF37; /* SANA Gold */
+  opacity: 0.5;
+  width: 10px;
+  height: 10px;
+  transition: opacity 0.3s, background-color 0.3s, transform 0.3s; /* Added transform */
+}
+
+.swiper-custom-pagination-core .swiper-pagination-bullet-active {
+  background-color: #006B35; /* SANA Deep Green */
+  opacity: 1;
+  transform: scale(1.2); /* Make active bullet slightly larger */
+}
+
+/* Ensure swiper slides are visible if using certain effects or settings */
+.swiper-slide {
+  display: flex; /* Helps with alignment if needed */
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* In your global CSS file if needed */
+.embla {
+  overflow: hidden; /* Or add `overflow-hidden` class in Tailwind */
+}
+.embla__container {
+  display: flex; /* Or add `flex` class in Tailwind */
+}
+.embla__slide {
+  position: relative;
+  /* flex-basis is handled by Tailwind: flex-[0_0_XX%] */
+  /* min-width: 0; is handled by Tailwind: min-w-0 */
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
