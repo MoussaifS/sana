@@ -31,18 +31,6 @@ export default function Header() {
               Services
             </Link>
             <Link 
-              href="/shrink-services" 
-              className="text-gray-700 hover:text-sana-primary transition-colors font-medium"
-            >
-              Shrink Services
-            </Link>
-            <Link 
-              href="/trimming-services" 
-              className="text-gray-700 hover:text-sana-primary transition-colors font-medium"
-            >
-              Trimming Services
-            </Link>
-            <Link 
               href="/manage" 
               className="text-gray-700 hover:text-sana-primary transition-colors font-medium"
             >
@@ -87,20 +75,6 @@ export default function Header() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Services
-              </Link>
-              <Link 
-                href="/shrink-services" 
-                className="text-gray-700 hover:text-sana-primary transition-colors font-medium py-1"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Shrink Services
-              </Link>
-              <Link 
-                href="/trimming-services" 
-                className="text-gray-700 hover:text-sana-primary transition-colors font-medium py-1"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Trimming Services
               </Link>
               <Link 
                 href="/manage" 

@@ -11,6 +11,8 @@ export type Horse = {
   gender: 'Male' | 'Female' | 'Gelding';
   image: string | null;
   notes: string;
+  color: string;
+  activities: string[];
 };
 
 export type Service = {
@@ -39,7 +41,9 @@ const sampleHorses: Horse[] = [
     age: 7,
     gender: 'Male',
     image: '/Horizontal black.png', // Using existing image as placeholder
-    notes: 'Champion jumper, very energetic.'
+    notes: 'Champion jumper, very energetic.',
+    color: 'Bay',
+    activities: ['Show Jumping', 'Dressage']
   },
 ];
 
