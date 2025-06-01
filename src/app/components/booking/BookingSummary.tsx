@@ -55,7 +55,7 @@ export default function BookingSummary({
           
           {shrinkType && (
             <div className="flex justify-between">
-              <span className="text-gray-600">Shrink Type:</span>
+              <span className="text-gray-600">Shoeing Type:</span>
               <span className="font-medium">{shrinkType}</span>
             </div>
           )}

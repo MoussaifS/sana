@@ -15,7 +15,7 @@ export default function HorseDetailView({ horse, onBack, onEdit, onAddService }:
   const [showServiceModal, setShowServiceModal] = useState(false);
   
   // Service types for the modal
-  const serviceTypes = ['Trimming', 'Steel Shrink', 'Aluminum Shrink', 'Orthopedic Shrink', 'Vet Visit', 'Dental Care', 'Vaccination'];
+  const serviceTypes = ['Trimming', 'Steel Shoeing', 'Aluminum Shoeing', 'Orthopedic Shoeing', 'Vet Visit', 'Dental Care', 'Vaccination'];
 
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">

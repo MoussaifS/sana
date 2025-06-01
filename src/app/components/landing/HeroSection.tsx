@@ -28,13 +28,13 @@ export default function HeroWithTabs() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
             <Link
-              href="/book/trimming"
+              href="/trimming-services"
               className="w-full sm:w-auto inline-flex items-center justify-center rounded-md bg-sana-accent px-8 py-3 text-base font-medium text-sana-primary shadow-md hover:bg-opacity-90 transition-colors focus:outline-none focus:ring-2 focus:ring-sana-accent focus:ring-offset-2"
             >
               <Scissors size={20} className="mr-2" /> Book Hoof Trimming
             </Link>
             <Link
-              href="/book/shoeing"
+              href="/shrink-services"
               className="w-full sm:w-auto inline-flex items-center justify-center rounded-md bg-sana-primary px-8 py-3 text-base font-medium text-white shadow-md hover:bg-opacity-90 transition-colors focus:outline-none focus:ring-2 focus:ring-sana-primary focus:ring-offset-2"
             >
               <Construction size={20} className="mr-2" /> Book Shoeing Service
@@ -59,7 +59,7 @@ export default function HeroWithTabs() {
           </p>
           <div className="mt-10">
             <Link
-              href="/profile/create"
+              href="/manage"
               className="inline-flex items-center justify-center rounded-md bg-sana-primary px-10 py-4 text-lg font-medium text-white shadow-md hover:bg-opacity-90 transition-colors focus:outline-none focus:ring-2 focus:ring-sana-primary focus:ring-offset-2"
             >
               <PlusCircle size={22} className="mr-2" /> Create Your Horse&apos;s Profile

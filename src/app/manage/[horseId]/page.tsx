@@ -45,9 +45,9 @@ function ServiceModal({ horseId, onClose }: ServiceModalProps) {
                 className="w-full p-2 border border-gray-300 rounded-md"
               >
                 <option value="Trimming">Trimming</option>
-                <option value="Steel Shrink">Steel Shrink</option>
-                <option value="Aluminum Shrink">Aluminum Shrink</option>
-                <option value="Orthopedic Shrink">Orthopedic Shrink</option>
+                <option value="Steel Shoeing">Steel Shoeing</option>
+                <option value="Aluminum Shoeing">Aluminum Shoeing</option>
+                <option value="Orthopedic Shoeing">Orthopedic Shoeing</option>
                 <option value="Vet Visit">Vet Visit</option>
                 <option value="Dental Care">Dental Care</option>
                 <option value="Vaccination">Vaccination</option>

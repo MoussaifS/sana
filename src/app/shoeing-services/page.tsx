@@ -3,11 +3,11 @@
 import BookingHeader from '../components/booking/BookingHeader';
 import BookingFlow from '../components/booking/BookingFlow';
 
-export default function ShrinkServicesPage() {
+export default function ShoeingServicesPage() {
   // Mock data for the service
   const serviceData = {
     title: "Shoeing Services",
-    description: "Professional horse shoeing services with various shrink types including steel, aluminum, and orthopedic options. Our expert farriers provide quality service for your equine companions.",
+    description: "Professional horse shoeing services with various shoeing types including steel, aluminum, and orthopedic options. Our expert farriers provide quality service for your equine companions.",
     images: [
       "/public/ChatGPT.png", // Using existing image as placeholder
       "/public/Horizontal black.png", // Using existing image as placeholder
@@ -24,7 +24,7 @@ export default function ShrinkServicesPage() {
       />
       
       <BookingFlow 
-        serviceType="shrink"
+        serviceType="shoeing"
         basePrice={serviceData.basePrice}
         serviceName={serviceData.title}
       />

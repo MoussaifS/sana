@@ -43,7 +43,7 @@ export default function HorseProfileSpotlight() {
             </ul>
             <div className="flex justify-center md:justify-start">
               <Link
-                href="/profile/create"
+                href="/manage"
                 className="inline-flex items-center justify-center rounded-md bg-sana-primary px-8 py-3 text-base font-medium text-white shadow-md hover:bg-opacity-90 transition-colors focus:outline-none focus:ring-2 focus:ring-sana-primary focus:ring-offset-2"
               >
                 Create Your Horse&apos;s Profile Now

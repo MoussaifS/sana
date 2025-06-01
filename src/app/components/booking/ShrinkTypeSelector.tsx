@@ -30,7 +30,7 @@ export default function ShrinkTypeSelector({ value, onChange, onNext }: ShrinkTy
 
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-semibold text-gray-800">Select Shrink Type</h2>
+      <h2 className="text-2xl font-semibold text-gray-800">Select Shoeing Type</h2>
       <p className="text-gray-600">Choose the type of horseshoe material that best suits your horse&apos;s needs.</p>
       
       <div className="space-y-4 mt-4">

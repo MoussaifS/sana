@@ -57,7 +57,7 @@ const sampleServices: Service[] = [
   {
     id: '2',
     horseId: '1',
-    type: 'Steel Shrink',
+    type: 'Steel Shoeing',
     date: new Date(2023, 3, 18) // April 18
   },
   {

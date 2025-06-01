@@ -61,7 +61,7 @@ export default function BookingFlow({ serviceType, basePrice, serviceName }: Boo
 
   // Get total number of steps
   const getTotalSteps = () => {
-    return serviceType === 'shrink' ? 4 : 3; // Shrink has an extra step
+    return serviceType === 'shrink' ? 4 : 3; // Shoeing has an extra step
   };
 
   // Render current step
@@ -81,7 +81,7 @@ export default function BookingFlow({ serviceType, basePrice, serviceName }: Boo
     }
 
     switch (currentStep) {
-      case 0: // Shrink type (only for shrink service)
+      case 0: // Shoeing type (only for shrink service)
         return (
           <ShrinkTypeSelector
             value={shrinkType}

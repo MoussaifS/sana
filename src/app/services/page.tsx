@@ -29,14 +29,14 @@ export default function ServicesPage() {
           </div>
         </Link>
         
-        {/* Shrink Services Card */}
+        {/* Shoeing Services Card */}
         <Link href="/shrink-services" className="group">
           <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform transform hover:scale-105">
             <div className="h-48 bg-sana-primary flex items-center justify-center text-white text-xl font-semibold">
-              Shrink Services
+              Shoeing Services
             </div>
             <div className="p-6">
-              <h2 className="text-xl font-semibold text-gray-800 mb-2 group-hover:text-sana-primary transition-colors">Shrink Services</h2>
+              <h2 className="text-xl font-semibold text-gray-800 mb-2 group-hover:text-sana-primary transition-colors">Shoeing Services</h2>
               <p className="text-gray-600">Specialized horseshoe fitting and adjustment services with options for steel, aluminum, and orthopedic solutions.</p>
               <div className="mt-4 flex justify-end">
                 <span className="text-sana-primary font-medium flex items-center">
