@@ -3,7 +3,7 @@
 
 import { Tab } from '@headlessui/react';
 import Link from 'next/link';
-import { Scissors, Construction, PlusCircle, Search } from 'lucide-react';
+import { Scissors, Construction, PlusCircle } from 'lucide-react';
 import { Fragment } from 'react'; // Often needed with Headless UI for groups
 
 function classNames(...classes: (string | undefined | null | false)[]) {
@@ -49,7 +49,7 @@ export default function HeroWithTabs() {
       content: (
         <div className="animate-fadeIn">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-sana-primary tracking-tight leading-tight">
-            Your Horse's Story,
+            Your Horse&apos;s Story,
             <br />
             All in One Secure Place.
           </h1>
@@ -62,7 +62,7 @@ export default function HeroWithTabs() {
               href="/profile/create"
               className="inline-flex items-center justify-center rounded-md bg-sana-primary px-10 py-4 text-lg font-medium text-white shadow-md hover:bg-opacity-90 transition-colors focus:outline-none focus:ring-2 focus:ring-sana-primary focus:ring-offset-2"
             >
-              <PlusCircle size={22} className="mr-2" /> Create Your Horse's Profile
+              <PlusCircle size={22} className="mr-2" /> Create Your Horse&apos;s Profile
             </Link>
           </div>
         </div>

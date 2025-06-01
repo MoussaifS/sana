@@ -44,7 +44,7 @@ export default function BookingSummary({
       </div>
       
       <h2 className="text-2xl font-semibold text-gray-800 text-center">Booking Confirmed!</h2>
-      <p className="text-gray-600 text-center">Your booking has been successfully created. Here's a summary of your booking details.</p>
+      <p className="text-gray-600 text-center">Your booking has been successfully created. Here&apos;s a summary of your booking details.</p>
       
       <div className="bg-gray-50 rounded-lg p-6 mt-6">
         <div className="space-y-4">

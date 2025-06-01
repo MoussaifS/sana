@@ -28,10 +28,10 @@ export default function HorseProfileSpotlight() {
           {/* Mobile centering for the second column */}
           <div className="text-center md:text-left">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-sana-primary mb-6 leading-tight">
-              Track Your Horse's Journey
+              Track Your Horse&apos;s Journey
             </h2>
             <p className="text-lg text-gray-700 font-elmessiri mb-8 leading-relaxed">
-              Create your horse's digital profile today and keep all important information at your fingertips. Start managing your equine companion more effectively!
+              Create your horse&apos;s digital profile today and keep all important information at your fingertips. Start managing your equine companion more effectively!
             </p>
             <ul className="space-y-4 mb-10 max-w-md mx-auto md:mx-0">
               {features.map((feature, index) => (
@@ -46,7 +46,7 @@ export default function HorseProfileSpotlight() {
                 href="/profile/create"
                 className="inline-flex items-center justify-center rounded-md bg-sana-primary px-8 py-3 text-base font-medium text-white shadow-md hover:bg-opacity-90 transition-colors focus:outline-none focus:ring-2 focus:ring-sana-primary focus:ring-offset-2"
               >
-                Create Your Horse's Profile Now
+                Create Your Horse&apos;s Profile Now
               </Link>
             </div>
           </div>

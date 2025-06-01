@@ -5,7 +5,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import type { EmblaCarouselType, EmblaOptionsType } from 'embla-carousel';
 import Autoplay from 'embla-carousel-autoplay';
-// import Image from 'next/image'; // Uncomment if using Next/Image
+import Image from 'next/image';
 
 const testimonials = [
   {
@@ -58,12 +58,14 @@ const TestimonialCard = ({
     className={`bg-sana-neutral-light p-6 rounded-xl shadow-lg flex flex-col items-center text-center h-full ${className || ''}`}
     style={style}
   >
-    <img
+    <Image
         src={testimonial.image}
         alt={testimonial.name}
+        width={96} // Adjust width as needed
+        height={96} // Adjust height as needed
         className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover mb-4 border-2 border-sana-accent"
     />
-    <p className="text-gray-700 font-elmessiri italic text-sm sm:text-base mb-4 leading-relaxed">"{testimonial.quote}"</p>
+    <p className="text-gray-700 font-elmessiri italic text-sm sm:text-base mb-4 leading-relaxed">`{testimonial.quote}`</p>
     <h3 className="text-md sm:text-lg font-semibold text-sana-primary">{testimonial.name}</h3>
     <p className="text-xs sm:text-sm text-sana-accent font-medium">{testimonial.role}</p>
   </div>

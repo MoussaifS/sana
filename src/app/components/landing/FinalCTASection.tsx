@@ -32,7 +32,7 @@ export default function FinalCTASection() {
             href="/profile/create"
             className="inline-flex items-center text-base font-medium text-sana-primary hover:text-sana-accent transition-colors"
           >
-             <PlusCircle size={20} className="mr-1" /> Or, Start Your Horse's Profile
+             <PlusCircle size={20} className="mr-1" /> Or, Start Your Horse&apos;s Profile
           </Link>
         </div>
       </div>

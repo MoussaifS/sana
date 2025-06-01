@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 
 type FrequencySelectorProps = {
   value: 'One-time' | 'Annual';
@@ -13,7 +12,7 @@ export default function FrequencySelector({ value, onChange, onNext, onBack }: F
   return (
     <div className="space-y-6">
       <h2 className="text-2xl font-semibold text-gray-800">Choose Service Frequency</h2>
-      <p className="text-gray-600">Select how often you'd like this service. Annual bookings receive a 10% discount.</p>
+      <p className="text-gray-600">Select how often you&apos;d like this service. Annual bookings receive a 10% discount.</p>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
         <div 

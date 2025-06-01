@@ -22,7 +22,7 @@ export default function DateSelector({ value, onChange, onNext, onBack }: DateSe
   return (
     <div className="space-y-6">
       <h2 className="text-2xl font-semibold text-gray-800">Preferred Date (Optional)</h2>
-      <p className="text-gray-600">Select your preferred date for the service. We'll try to accommodate your preference.</p>
+      <p className="text-gray-600">Select your preferred date for the service. We&apos;ll try to accommodate your preference.</p>
       
       <div className="mt-4">
         <label className="block text-sm font-medium text-gray-700 mb-1">Select Date</label>

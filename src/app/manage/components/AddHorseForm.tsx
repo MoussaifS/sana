@@ -5,7 +5,16 @@ import { Horse } from '../page';
 import Image from 'next/image';
 
 type AddHorseFormProps = {
-  onSubmit: (horse: any) => void;
+  onSubmit: (horse: {
+    name: string;
+    breed: string;
+    age: number;
+    gender: 'Male' | 'Female' | 'Gelding';
+    image?: string | null;
+    notes?: string;
+    id?: string;
+    services?: { id: string; name: string; description?: string; price: number }[];
+  }) => void;
   initialData?: Horse;
   isEditing?: boolean;
 };
@@ -16,7 +25,9 @@ export default function AddHorseForm({ onSubmit, initialData, isEditing = false 
   const [breed, setBreed] = useState('');
   const [age, setAge] = useState<number | ''>('');
   const [gender, setGender] = useState<'Male' | 'Female' | 'Gelding'>('Male');
-  const [image, setImage] = useState<string | null>(null);
+  // const [image, setImage] = useState<string | null>(null);
+  // const [ setImage] = useState<string | null>(null);
+
   const [notes, setNotes] = useState('');
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 

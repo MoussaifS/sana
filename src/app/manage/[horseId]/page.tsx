@@ -3,10 +3,9 @@
 import { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { QRCodeSVG } from 'qrcode.react';
-import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
 import { generateHorseQRPDF } from '../../utils/PDFTemplate';
-import { useHorseContext } from '../../context/HorseContext';
+// Import Horse and Service types from context
+import { useHorseContext, Horse, Service } from '../../context/HorseContext';
 
 // Service Modal Component
 type ServiceModalProps = {
@@ -89,40 +88,59 @@ function ServiceModal({ horseId, onClose }: ServiceModalProps) {
   );
 }
 
-// Mock data for services
-const mockServices = [
-  { id: 1, name: 'Trimming Service', date: '2023-10-15', status: 'Completed' },
-  { id: 2, name: 'Shrink Service (Steel)', date: '2023-11-02', status: 'Scheduled' },
-  { id: 3, name: 'Veterinary Check-up', date: '2023-09-28', status: 'Completed' },
-];
+// Define the correct types for Next.js App Router (supporting both old and new patterns)
+interface HorseDetailPageProps {
+  params: Promise<{
+    horseId: string;
+  }>;
+}
 
-export default function HorseDetailPage({ params }: { params: { horseId: string } }) {
+export default function HorseDetailPage({ params }: HorseDetailPageProps) {
   const router = useRouter();
-  const { services, addService } = useHorseContext();
-  const [horse, setHorse] = useState(null);
+  const { services } = useHorseContext();
+
+  // Use the Horse type for the horse state
+  const [horse, setHorse] = useState<Horse | null>(null);
   const [loading, setLoading] = useState(true);
   const [shareUrl, setShareUrl] = useState('');
   const [copySuccess, setCopySuccess] = useState(false);
-  const [showServiceModal] = useState(false);
-  const qrCodeRef = useRef(null);
+  const [showServiceModal, setShowServiceModal] = useState(false);
+  const [horseId, setHorseId] = useState<string>('');
+  const qrCodeRef = useRef<SVGSVGElement>(null);
   
   useEffect(() => {
-    // In a real app, this would fetch from an API
-    // For prototype, we'll get from localStorage
-    const storedHorses = JSON.parse(localStorage.getItem('horses') || '[]');
-    const foundHorse = storedHorses.find(h => h.id === params.horseId);
-    
-    if (foundHorse) {
-      setHorse(foundHorse);
-      // Set the share URL
-      setShareUrl(`${window.location.origin}/manage/${params.horseId}`);
-    } else {
-      // Horse not found, redirect to dashboard
-      router.push('/manage');
-    }
-    
-    setLoading(false);
-  }, [params.horseId, router]);
+    // Resolve the params Promise and initialize the component
+    const initializeComponent = async () => {
+      try {
+        const resolvedParams = await params;
+        const currentHorseId = resolvedParams.horseId;
+        setHorseId(currentHorseId);
+        
+        // In a real app, this would fetch from an API
+        // For prototype, we'll get from localStorage
+        // It's better to get this from context or API in a real app
+        const storedHorses = JSON.parse(localStorage.getItem('horses') || '[]');
+        const foundHorse = storedHorses.find((h: Horse) => h.id === currentHorseId);
+        
+        if (foundHorse) {
+          setHorse(foundHorse);
+          // Set the share URL
+          setShareUrl(`${window.location.origin}/manage/${currentHorseId}`);
+        } else {
+          // Horse not found, redirect to dashboard
+          router.push('/manage');
+        }
+        
+        setLoading(false);
+      } catch (error) {
+        console.error('Error resolving params:', error);
+        setLoading(false);
+        router.push('/manage');
+      }
+    };
+
+    initializeComponent();
+  }, [params, router]);
 
   const handleCopyLink = async () => {
     try {
@@ -146,14 +164,16 @@ export default function HorseDetailPage({ params }: { params: { horseId: string 
     img.onload = () => {
       canvas.width = img.width;
       canvas.height = img.height;
-      ctx.drawImage(img, 0, 0);
-      const pngFile = canvas.toDataURL('image/png');
-      
-      // Download the PNG
-      const downloadLink = document.createElement('a');
-      downloadLink.download = `${horse.name}-QR.png`;
-      downloadLink.href = pngFile;
-      downloadLink.click();
+      if (ctx) {
+        ctx.drawImage(img, 0, 0);
+        const pngFile = canvas.toDataURL('image/png');
+        
+        // Download the PNG
+        const downloadLink = document.createElement('a');
+        downloadLink.download = `${horse?.name || 'horse'}-QR.png`;
+        downloadLink.href = pngFile;
+        downloadLink.click();
+      }
     };
     
     img.src = 'data:image/svg+xml;base64,' + btoa(svgData);
@@ -165,10 +185,14 @@ export default function HorseDetailPage({ params }: { params: { horseId: string 
     const qrCodeElement = document.getElementById('horse-qr-code');
     if (!qrCodeElement) return;
     
-    const success = await generateHorseQRPDF(horse, qrCodeElement);
-    
-    if (!success) {
-      // Show error message
+    try {
+      const success = await generateHorseQRPDF(horse, qrCodeElement);
+      
+      if (!success) {
+        alert('Failed to generate PDF. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error generating PDF:', error);
       alert('Failed to generate PDF. Please try again.');
     }
   };
@@ -185,8 +209,8 @@ export default function HorseDetailPage({ params }: { params: { horseId: string 
 
   // Get horse services from context
   const horseServices = services
-    .filter(s => s.horseId === params.horseId)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    .filter((s: Service) => s.horseId === horseId)
+    .sort((a: Service, b: Service) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -238,9 +262,9 @@ export default function HorseDetailPage({ params }: { params: { horseId: string 
                 <div className="mt-4">
                   <h3 className="text-gray-500 text-sm font-medium mb-2">Activities</h3>
                   <div className="flex flex-wrap gap-2">
-                    {horse.activities.map(activity => (
+                    {horse.activities.map((activity: string, index: number) => (
                       <span 
-                        key={activity} 
+                        key={`${activity}-${index}`} 
                         className="px-3 py-1 bg-sana-neutral-light text-sana-primary text-sm rounded-full"
                       >
                         {activity}
@@ -328,7 +352,7 @@ export default function HorseDetailPage({ params }: { params: { horseId: string 
             
             <div className="space-y-4">
               {horseServices.length > 0 ? (
-                horseServices.map(service => (
+                horseServices.map((service: Service) => (
                   <div key={service.id} className="border-b pb-4 last:border-b-0 last:pb-0">
                     <div className="flex justify-between items-start">
                       <div>
@@ -365,7 +389,7 @@ export default function HorseDetailPage({ params }: { params: { horseId: string 
       {/* Service Modal */}
       {showServiceModal && (
         <ServiceModal 
-          horseId={params.horseId} 
+          horseId={horseId} 
           onClose={() => setShowServiceModal(false)} 
         />
       )}

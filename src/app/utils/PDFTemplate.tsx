@@ -93,7 +93,7 @@ export const generatePDF = async ({
     }
     
     // Generate PDF
-    const pdf = new jsPDF(orientation[0] as any, 'mm', 'a4');
+    const pdf = new jsPDF(orientation[0] as 'p' | 'l', 'mm', 'a4');
     const pdfCanvas = await html2canvas(pdfContent, {
       scale: 2, // Higher scale for better quality
       useCORS: true,
