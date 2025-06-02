@@ -15,7 +15,7 @@ export default function HorseProfileSpotlight() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* First column with ChatGPT.png image */}
-          <div className="aspect-video rounded-xl shadow-xl overflow-hidden relative mx-auto w-full max-w-md">
+          {/* <div className="aspect-video rounded-xl shadow-xl overflow-hidden relative mx-auto w-full max-w-md">
             <Image 
               src="/ChatGPT.png" 
               alt="ChatGPT" 
@@ -23,7 +23,7 @@ export default function HorseProfileSpotlight() {
               className="object-cover"
               priority
             />
-          </div>
+          </div> */}
           
           {/* Mobile centering for the second column */}
           <div className="text-center md:text-left">
